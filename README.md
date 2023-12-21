@@ -31,7 +31,7 @@ Bitcoin transaction ID.
 3. Run the script:
 
    ```bash
-   python crypto_checker.py
+   python crypto-checker.py
    ```
 
 ## Functionality
@@ -39,7 +39,7 @@ Bitcoin transaction ID.
 - Enter a cryptocurrency address (Bitcoin, Ethereum, or TRON) or Bitcoin transaction ID.
 - Press the "Open Websites" button or hit Enter to open relevant websites.
 - An instance of Chrome will be loaded with all websites pre-searched with search term.
-- Simple.. enjoy the efficiencies.
+- Simple.. enjoy!
 
 ## Supported Searches and Websites
 
