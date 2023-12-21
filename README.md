@@ -1,9 +1,12 @@
 ```markdown
-# Crypto Checker
+# Crypto-Checker
 
 ## Overview
 
-Crypto Checker is a simple Python script with a graphical user interface (GUI) built using Tkinter. It allows users to quickly open multiple cryptocurrency-related websites based on a provided cryptocurrency address or transaction ID.
+Crypto Checker is a simple Python script with a graphical user interface (GUI).
+It allows users to quickly open multiple cryptocurrency-related websites in Chrome Browser
+based on a provided cryptocurrency address (Bitcoin, Ethereum, or TRON) or
+Bitcoin transaction ID.
 
 ## Minimum Requirements
 
@@ -35,8 +38,8 @@ Crypto Checker is a simple Python script with a graphical user interface (GUI) b
 
 - Enter a cryptocurrency address (Bitcoin, Ethereum, or TRON) or Bitcoin transaction ID.
 - Press the "Open Websites" button or hit Enter to open relevant websites.
-- An instance of Chrome will be loaded with all websites pre-searched with your search term.
-- Simple.. yet effective.
+- An instance of Chrome will be loaded with all websites pre-searched with search term.
+- Simple.. enjoy the efficiencies.
 
 ## Supported Searches and Websites
 
