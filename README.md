@@ -20,7 +20,6 @@ Bitcoin transaction ID.
 
 ```bash
 python crypto-checker.py
-```
 
 ## Functionality
 
