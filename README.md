@@ -16,19 +16,7 @@ Bitcoin transaction ID.
 
 ## How to Run
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/your-username/crypto-checker.git
-   ```
-
-2. Navigate to the project directory:
-
-   ```bash
-   cd crypto-checker
-   ```
-
-3. Run the script:
+1. Download and run script
 
    ```bash
    python crypto-checker.py
