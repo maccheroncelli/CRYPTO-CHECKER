@@ -18,9 +18,9 @@ Bitcoin transaction ID.
 
 1. Download and run script
 
-   ```bash
-   python crypto-checker.py
-   ```
+```bash
+python crypto-checker.py
+```
 
 ## Functionality
 
