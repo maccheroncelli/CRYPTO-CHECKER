@@ -70,8 +70,6 @@ class BlockchainHandler:
     def build_urls(self, value):
         return [(label, url.format(value=value)) for label, url in self.url_templates.items()]
 
-from tkinter import StringVar
-
 class CryptoCheckerGUI(ctk.CTk):
     def __init__(self):
         super().__init__()
@@ -110,14 +108,10 @@ class CryptoCheckerGUI(ctk.CTk):
         self.checkbox_frame.pack(pady=10, fill="both", expand=False, padx=10)
 
         self.open_button = ctk.CTkButton(self, text="Open Selected Sites", command=self.open_selected)
-        self.open_button.pack(pady=4)
+        self.open_button.pack(pady=8)
 
         self.add_site_button = ctk.CTkButton(self, text="Add Site", command=self.add_site)
         self.add_site_button.pack(pady=4)
-        
-        self.language_var = StringVar(value="English")
-        self.language_dropdown = ctk.CTkOptionMenu(self, values=["English", "Vietnamese", "Thai", "Lao", "Khmer", "Arabic"], variable=self.language_var, command=self.update_language)
-        self.language_dropdown.pack(pady=4)
 
     def detect_and_display(self):
         value = self.entry.get().strip()
@@ -133,29 +127,22 @@ class CryptoCheckerGUI(ctk.CTk):
                 prioritized = [item for item in urls if item[0] not in special_labels]
                 deprioritized = [item for item in urls if item[0] in special_labels]
                 self.current_urls = prioritized + deprioritized
-                print(f"Matched handler: {handler.name}")
-                print(f"Generated URLs: {self.current_urls}")
+                #print(f"Matched handler: {handler.name}")
+                #print(f"Generated URLs: {self.current_urls}")
 
                 if handler.name == "Hexadecimal":
-                    hex_note = {
-                                "English": "Detected: Hexadecimal address\nNote: These addresses are used across multiple blockchains,\nFurther research is recommended to confirm ownership and purpose.",
-                                "Vietnamese": "Đã phát hiện: địa chỉ dạng Hex\nLưu ý: Các địa chỉ này được dùng trên nhiều blockchain khác nhau.\nCần nghiên cứu thêm để xác định mục đích.",
-                                "Thai": "ตรวจพบ: ที่อยู่เลขฐานสิบหก\nที่อยู่เหล่านี้ใช้ในหลายบล็อกเชน\nโปรดศึกษาข้อมูลเพิ่มเติมเพื่อระบุวัตถุประสงค์.",
-                                "Lao": "ພົບ: ທີ່ຢູ່ແບບ Hex\nແມ່ນຖືກໃຊ້ໃນຫຼາຍ Blockchain\nຄວນຄົ້ນຄວ້າເພີ່ມເຕີມເພື່ອກຳນົດຄວາມໝາຍ.",
-                                "Khmer": "បានរកឃើញ៖ អាសយដ្ឋាន Hexadecimal\nអាសយដ្ឋានទាំងនេះត្រូវបានប្រើលើ blockchain ច្រើន\nសូមស្វែងរកបន្ថែមដើម្បីយល់អំពីគោលបំណង។",
-                                "Arabic": "تم الكشف: عنوان سداسي عشري\nتُستخدم هذه العناوين عبر العديد من شبكات البلوكتشين،\nيُنصح بإجراء مزيد من البحث لتحديد الغرض والاستخدام."}
-                    message = hex_note.get(self.language_var.get(), hex_note["English"])
                     self.type_label.configure(
-                        text=message,
+                    text=("Detected: Hexadecimal address\n"
+                          "Note: These addresses are used across multiple blockchains,\n"
+                          "Further research is recommended to confirm ownership and purpose."),
                         text_color="red",
                         wraplength=180,
                         font=ctk.CTkFont(size=12),
                         justify="center"
                     )
-                        
                 else:
                     self.type_label.configure(text=f"Detected: {handler.name} address", text_color="red", font=ctk.CTkFont(size=12, weight="bold"))
-                    self.render_checkboxes()
+                self.render_checkboxes()
                 return
 
         self.current_handler_name = "TXID"
@@ -267,72 +254,6 @@ class CryptoCheckerGUI(ctk.CTk):
     def on_closing(self):
         self.save_checked_state_memory()
         self.destroy()
-
-    def update_language(self, lang):
-        translations = {
-            "English": {
-                "detect_type": "Detect Type",
-                "open_selected": "Open Selected Sites",
-                "add_site": "Add Site",
-                "info": "Please detect a type first.",
-                "invalid": "URL must contain '{value}'.",
-                "no_selection": "Please select at least one website.",
-                "unsupported": "Unsupported platform."
-            },
-            "Vietnamese": {
-                "detect_type": "Phát hiện loại",
-                "open_selected": "Mở các trang đã chọn",
-                "add_site": "Thêm trang",
-                "info": "Vui lòng phát hiện loại trước.",
-                "invalid": "URL phải chứa '{value}'.",
-                "no_selection": "Vui lòng chọn ít nhất một trang web.",
-                "unsupported": "Nền tảng không được hỗ trợ."
-            },
-            "Thai": {
-                "detect_type": "ตรวจหาประเภท",
-                "open_selected": "เปิดเว็บไซต์ที่เลือก",
-                "add_site": "เพิ่มเว็บไซต์",
-                "info": "กรุณาตรวจหาประเภทก่อน",
-                "invalid": "URL ต้องมี '{value}'",
-                "no_selection": "กรุณาเลือกอย่างน้อยหนึ่งเว็บไซต์",
-                "unsupported": "ไม่รองรับแพลตฟอร์ม"
-            },
-            "Lao": {
-                "detect_type": "ກວດພົບປະເພດ",
-                "open_selected": "ເປີດເວັບໄຊທີ່ເລືອກ",
-                "add_site": "ເພີ່ມເວັບໄຊທ໌",
-                "info": "ກະລຸນາກວດພົບປະເພດກ່ອນ",
-                "invalid": "URL ຕ້ອງມີ '{value}'",
-                "no_selection": "ກະລຸນາເລືອກເວັບໄຊທ໌ຢ່າງໜ້ອຍໜຶ່ງ",
-                "unsupported": "ບໍ່ຮອງຮັບແພລດຟອມ"
-            },
-            "Khmer": {
-                "detect_type": "រកឃើញប្រភេទ",
-                "open_selected": "បើកគេហទំព័រដែលបានជ្រើស",
-                "add_site": "បន្ថែមគេហទំព័រ",
-                "info": "សូមរកឃើញប្រភេទជាមុន",
-                "invalid": "URL ត្រូវមាន '{value}'",
-                "no_selection": "សូមជ្រើសរើសយ៉ាងហោចណាស់មួយគេហទំព័រ",
-                "unsupported": "មិនគាំទ្រផ្នែករឹងនេះទេ"
-            },
-            "Arabic": {
-                "detect_type": "تحديد النوع",
-                "open_selected": "فتح المواقع المحددة",
-                "add_site": "إضافة موقع",
-                "info": "يرجى تحديد النوع أولاً.",
-                "invalid": "يجب أن يحتوي الرابط على '{value}'",
-                "no_selection": "يرجى تحديد موقع واحد على الأقل.",
-                "unsupported": "النظام غير مدعوم."
-            },
-                "no_selection": "សូមជ្រើសរើសយ៉ាងហោចណាស់មួយគេហទំព័រ",
-                "unsupported": "មិនគាំទ្រផ្នែករឹងនេះទេ"
-            }
-        
-        t = translations.get(lang, translations["English"])
-        self.detect_button.configure(text=t["detect_type"])
-        self.open_button.configure(text=t["open_selected"])
-        self.add_site_button.configure(text=t["add_site"])
-        self.texts = t
 
     def delete_site(self, label):
         site_data = self.sites_config.get(self.current_handler_name, {}).get("urls", {})
