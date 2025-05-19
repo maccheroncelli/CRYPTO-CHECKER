@@ -1,0 +1,49 @@
+{
+  "Bitcoin": {
+    "validators": [
+      "is_bitcoin_address"
+    ],
+    "urls": {
+      "Tokenview": "https://tokenview.io/en/search/{value}",
+      "Blockchair": "https://blockchair.com/bitcoin/address/{value}",
+      "WalletExplorer": "https://www.walletexplorer.com/address/{value}",
+      "Blockchain.com": "https://www.blockchain.com/btc/address/{value}",
+      "OKLink": "https://www.oklink.com/btc/address/{value}",
+      "Google Search": "https://www.google.com/search?q={value}%20-block",
+      "Chainabuse": "https://www.chainabuse.com/address/{value}"
+    }
+  },
+  "Hexadecimal": {
+    "validators": [
+      "is_hex_address"
+    ],
+    "urls": {
+      "Blockscan": "https://blockscan.com/address/{value}",
+      "Etherscan": "https://etherscan.io/address/{value}",
+      "Tokenview": "https://tokenview.io/en/search/{value}",
+      "Chainabuse": "https://www.chainabuse.com/address/{value}",
+      "Google Search": "https://www.google.com/search?q={value}%20-block",
+      "Polyscan": "https://polygonscan.com/address/{value}",
+      "BSC Scan": "https://bscscan.com/address/{value}"
+    }
+  },
+  "TRON": {
+    "validators": [
+      "is_tron_address"
+    ],
+    "urls": {
+      "Tronscan": "https://tronscan.org/#/address/{value}",
+      "Tokenview": "https://trx.tokenview.io/en/tokentxns/{value}",
+      "Chainabuse": "https://www.chainabuse.com/address/{value}",
+      "Google Search": "https://www.google.com/search?q={value}%20-block"
+    }
+  },
+  "TXID": {
+    "validators": [],
+    "urls": {
+      "Blockchain.com TX": "https://www.blockchain.com/explorer/transactions/btc/{value}",
+      "OKLink TX": "https://www.oklink.com/btc/tx/{value}",
+      "Blockchair TX": "https://blockchair.com/bitcoin/transaction/{value}"
+    }
+  }
+}
