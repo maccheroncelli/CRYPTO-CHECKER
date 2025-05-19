@@ -105,5 +105,4 @@ Use `{value}` as a placeholder for the address or TXID you input.
 
 **Feel free to fork, modify, and improve!**
 
-![image](https://github.com/user-attachments/assets/80962463-e650-47c4-80fa-fa4e78d2b786)
-
+![2025-05-19_14-55-49](https://github.com/user-attachments/assets/039ccc84-085f-4c8b-aa7a-862605d63436)
